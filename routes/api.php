@@ -15,7 +15,7 @@ use App\Http\Controllers\DocumentController;
 /** User Routes */
 Route::middleware('auth:api')->get('user/list/{id?}',[UserController::class,"list"]);
 Route::middleware('auth:api')->get('user/requests/{id}',[UserController::class,"requests"]);
-Route::middleware('auth:api')->post('user/add',[UserController::class,"add"]);
+Route::post('user/add',[UserController::class,"add"]);
 Route::middleware('auth:api')->put('user/edit',[UserController::class,"edit"]);
 
 /** Company Routes */
