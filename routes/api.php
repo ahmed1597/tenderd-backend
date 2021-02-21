@@ -19,7 +19,7 @@ Route::post('user/add',[UserController::class,"add"]);
 Route::middleware('auth:api')->put('user/edit',[UserController::class,"edit"]);
 
 /** Company Routes */
-Route::middleware('auth:api')->get('company/list/{id?}',[CompanyController::class,"list"]);
+Route::get('company/list/{id?}',[CompanyController::class,"list"]);
 Route::middleware('auth:api')->get('company/users/{id}',[CompanyController::class,"users"]);
 Route::middleware('auth:api')->get('company/requests/{id}',[CompanyController::class,"requests"]);
 Route::middleware('auth:api')->put('company/edit',[CompanyController::class,"edit"]);
