@@ -44,6 +44,26 @@ class Company extends Model
     }
 
     /**
+     * create new Company
+     * @param $REQUEST
+     * @return \Illuminate\Http\Response
+     */
+    public function create(Request $request)
+    {
+        $validator = $this->validate_create_request($request);
+        if($validator->fails())
+        {
+            return ["status"=>"error","message"=>$validator->errors()];
+        }
+        else
+        {
+            $this->name = $request->name;
+            $this->save();
+            return ["status"=>"success","message"=>"Company created successfully"];
+        }
+    }
+
+    /**
      * Update Company name 
      * @param $REQUEST
      * @return \Illuminate\Http\Response
@@ -61,6 +81,20 @@ class Company extends Model
             $this->save();
             return ["status"=>"success","message"=>"Company updated successfully"];
         }
+    }
+
+    /**
+     * validate new company request
+     * @param $REQUEST
+     * @return $validator
+     */
+    public function validate_create_request(Request $request)
+    {
+        $rules = array(
+            "name" =>"required|string"
+        );
+        $validator = Validator::make($request->all(),$rules);
+        return $validator;
     }
 
     /**

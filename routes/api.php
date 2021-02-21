@@ -23,6 +23,7 @@ Route::middleware('auth:api')->get('company/list/{id?}',[CompanyController::clas
 Route::middleware('auth:api')->get('company/users/{id}',[CompanyController::class,"users"]);
 Route::middleware('auth:api')->get('company/requests/{id}',[CompanyController::class,"requests"]);
 Route::middleware('auth:api')->put('company/edit',[CompanyController::class,"edit"]);
+Route::post('company/add',[CompanyController::class,"add"]);
 
 /** Request Routes */
 Route::middleware('auth:api')->get('request/list/{id?}',[TicketController::class,"list"]);

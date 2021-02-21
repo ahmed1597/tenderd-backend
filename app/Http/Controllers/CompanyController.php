@@ -18,6 +18,17 @@ class CompanyController extends Controller
     }
 
     /**
+     * add Company 
+     * @param $REQUEST
+     * @return \Illuminate\Http\Response
+     */
+    public function add(Request $request)
+    {
+        $company = new Company;
+        return $company->create($request);
+    }
+
+    /**
      * Update Company name
      * @param $REQUEST
      * @return \Illuminate\Http\Response
