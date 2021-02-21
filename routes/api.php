@@ -13,7 +13,8 @@ use App\Http\Controllers\DocumentController;
 |--------------------------------------------------------------------------
 */
 /** User Routes */
-Route::middleware('auth:api')->get('user/list/{id?}',[UserController::class,"list"]);
+Route::middleware('auth:api')->get('user/list',[UserController::class,"list"]);
+Route::get('user/info/{id}',[UserController::class,"info"]);
 Route::middleware('auth:api')->get('user/requests/{id}',[UserController::class,"requests"]);
 Route::post('user/add',[UserController::class,"add"]);
 Route::middleware('auth:api')->put('user/edit',[UserController::class,"edit"]);

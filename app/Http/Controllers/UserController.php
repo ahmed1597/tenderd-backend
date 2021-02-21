@@ -9,12 +9,21 @@ class UserController extends Controller
 {
     /**
      * list all users
-     * @param $REQUEST
      * @return \Illuminate\Http\Response
      */
-    public function list($id=null)
+    public function list()
     {
-        return $id?User::find($id):User::all();
+        return User::all();
+    }
+
+    /**
+     * get user details
+     * @param userID
+     * @return \Illuminate\Http\Response
+     */
+    public function info($id)
+    {
+        return User::find($id);
     }
 
     /**
